@@ -61,6 +61,11 @@ public class OpenAiOptions
     ///     from an environment variable or key management service.
     /// </summary>
     public string ApiKey { get; set; } = null!;
+    
+    /// <summary>
+    ///     Headers for the request
+    /// </summary>
+    public Dictionary<string, string>? Headers { get; set; }
 
     /// <summary>
     ///     Default Api Version

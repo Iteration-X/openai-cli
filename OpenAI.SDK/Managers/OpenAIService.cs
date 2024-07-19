@@ -53,6 +53,9 @@ public partial class OpenAIService : IOpenAIService, IDisposable
         {
             _httpClient.DefaultRequestHeaders.Add("OpenAI-Organization", $"{settings.Organization}");
         }
+        
+        foreach (var header in settings.Headers ?? [])
+            _httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
 
         _endpointProvider = settings.ProviderType switch
         {
